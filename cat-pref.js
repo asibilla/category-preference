@@ -131,9 +131,9 @@ var CatPrefSegmentationManager = function(xpmObj,catPrefString) {
   personalizationService.api.personalizationDone([xpmObj, {}]);
 };
 
-personalizationService.api.onPersonalization(function(event) {
-  var abTest = event['202'];
-  var catPrefString = event['ATUSCATPREF'];
+personalizationService.api.onPersonalization(function(xpmObj) {
+  var abTest = xpmObj['202'];
+  var catPrefString = xpmObj['ATUSCATPREF'];
   if (abTest) {
     var newUserSeg = new CatPrefSegmentationManager(abTest,catPrefString);
     if (location.pathname.indexOf('home.do')>-1 || location.pathname=="/") {
